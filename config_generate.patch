@@ -1,0 +1,11 @@
+--- config_generate.origin	2023-02-08 17:03:06.121494452 +0800
++++ config_generate	2023-02-08 17:04:07.591477826 +0800
+@@ -301,7 +301,7 @@ generate_static_system() {
+ 	uci -q batch <<-EOF
+ 		delete system.@system[0]
+ 		add system system
+-		set system.@system[-1].hostname='ImmortalWrt'
++		set system.@system[-1].hostname='ARCHOST'
+ 		set system.@system[-1].timezone='UTC'
+ 		set system.@system[-1].ttylogin='0'
+ 		set system.@system[-1].log_size='64'
