@@ -38,8 +38,12 @@ jobs:
         sudo -E rm -rf /usr/share/dotnet /etc/mysql /etc/php /usr/local/lib/android /opt/ghc /swapfile
     - name: Clone Source
       run: |
+        cp config_generate.patch /home/runner
+        cp shadow.patch /home/runner
         cd /home/runner
         bash ${GITHUB_WORKSPACE}/clone_source.sh
+        patch immortalwrt/package/base-files/files/bin/config_generate config_generate.patch
+        patch immortalwrt/package/base-files/files/etc/shadow shadow.patch
         sudo chown -R runner:runner immortalwrt
     - name: Before Build
       run: |
